@@ -1,5 +1,5 @@
 #include <map>
-
+using namespace std;
 
 class Member{
     private:
@@ -17,6 +17,6 @@ class Member{
         void unfollow(Member& m);
         unsigned int numFollowing() const;
         unsigned int numFollowers() const;
-        static unsigned int count() const;
+        static unsigned int count();
         ~Member();
-}
+};

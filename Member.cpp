@@ -1,8 +1,8 @@
 #include "Member.h"
 #include <iterator>
 
-Member::ACTIVE_MEMBERS = 0;
-Member::COUNTER_ID = 1;
+unsigned int Member::ACTIVE_MEMBERS = 0;
+unsigned int Member::COUNTER_ID = 1;
 
 Member::Member(){
     this->following = 0;
@@ -18,21 +18,21 @@ void Member::follow(Member& m)
     if(this->following_list.count(m.id) > 0)
         return;
     
-    this->following_list.insert(m.id, &m);
+    this->following_list.insert(pair<unsigned int, Member*>(m.id, &m));
     this->following++;
     
-    m.followers_list.insert(this->id, &this);
+    m.followers_list.insert(pair<unsigned int, Member*>(this->id, this));
     m.followers++;
 }
 
 void Member::unfollow(Member& m)
 {
     //checking if "this" does not follow him
-    if(this->following_list.count(m.id) = 0)
+    if(this->following_list.count(m.id) == 0)
         return;
         
     this->following_list.erase(m.id);
-    this.following--;
+    this->following--;
     
     m.followers_list.erase(this->id);
     m.followers--;
@@ -48,13 +48,14 @@ unsigned int Member::numFollowers() const
     return this->followers;
 }
 
-static unsigned int Member::count() const
+unsigned int Member::count()
 {
     return ACTIVE_MEMBERS;
 }
 
-Member::~Member(){
-    map<unsigned int, Member&>::iterator itr;
+Member::~Member()
+{
+    map<unsigned int, Member*>::iterator itr;
     for(itr = this->followers_list.begin(); itr != this->followers_list.end(); ++itr )
     {
         Member* m = itr->second;
