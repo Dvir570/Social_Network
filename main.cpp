@@ -13,6 +13,17 @@ void test1() {
 	cout << "  " << Member::count() << endl; // 4
 }
 
+void test2(){
+	unsigned int before1 = avi.numFollowing();
+	unsigned int before2 = avi.numFollowers();
+	avi.follow(avi);
+	unsigned int after1 = avi.numFollowing();
+	unsigned int after2 = avi.numFollowers();
+	
+	cout<< " " << before1 << "=" << after1 << endl; // x=x
+	cout<< " " << before2 << "=" << after2 << endl; // y=y
+}
+
 int main() {
 	cout << avi.numFollowers() << " " << avi.numFollowing() << endl; // 0 0
 	avi.follow(beni);
@@ -32,4 +43,6 @@ int main() {
 	cout << chana.numFollowers() << " " <<  chana.numFollowing() << endl; // 0 0
 	cout << avi.numFollowers() << " " <<  avi.numFollowing() << endl; // 0 0
 	cout << Member::count() << endl; // 3
+	
+	test2();
 }
