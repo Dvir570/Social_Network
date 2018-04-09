@@ -14,6 +14,10 @@ Member::Member(){
 
 void Member::follow(Member& m) 
 {
+    //checking if "this" tried to follow himself
+    if(this->id == m.id)
+        return;
+        
     //checking if "this" already follows him
     if(this->following_list.count(m.id) > 0)
         return;
@@ -27,6 +31,10 @@ void Member::follow(Member& m)
 
 void Member::unfollow(Member& m)
 {
+    //checking if "this" tried to unfollow himself
+    if(this->id == m.id)
+        return;
+        
     //checking if "this" does not follow him
     if(this->following_list.count(m.id) == 0)
         return;
