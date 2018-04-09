@@ -2,7 +2,7 @@
 **Last modified: 9/4/2018** 
 # Social Network 
   
-A task in C++ course.  
+Third task in C++ course.  
 ---  
 
 This task allows you to create members and follow one another 
