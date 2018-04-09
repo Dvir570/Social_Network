@@ -1,4 +1,4 @@
-#include "Member.h"
+#include "Member.hpp"
 #include <iterator>
 
 unsigned int Member::ACTIVE_MEMBERS = 0;
