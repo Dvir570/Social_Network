@@ -69,7 +69,6 @@ Member::~Member()
         Member* m = itr->second;
         m->following_list.erase(this->id);
         m->following--;
-        delete m;
     }
     
     for(itr = this->following_list.begin(); itr != this->following_list.end(); ++itr)
@@ -77,7 +76,6 @@ Member::~Member()
         Member* m = itr->second;
         m->followers_list.erase(this->id);
         m->followers--;
-        delete m;
     }
     
     
