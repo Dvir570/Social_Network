@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cassert>
-#include "Member.hpp"
+#include "Member.h"
 using namespace std;
 
 Member avi, beni, chana;
